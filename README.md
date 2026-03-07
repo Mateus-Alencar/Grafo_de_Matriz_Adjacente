@@ -3,12 +3,12 @@
 Repositório dedicado à implementação de grafos e dígrafos utilizando matriz de adjacência. Ela incluí documentação, exemplos e código da implementação
 
 ## Sumário
-graph-adjacency-matrix-implementation
-├── src/
-│   └── grafo.py
-├── examples/
-│   └── 
-└── README.md
+graph-adjacency-matrix-implementation  
+├── src/  
+│   └── grafo.py  
+├── examples/  
+│   └──   
+└── README.md  
 
 ## Conceitos
 
