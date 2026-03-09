@@ -11,8 +11,10 @@ class Grafo:
       # map(int) aplica a função int() em cada elemento da lista
       a, b = map(int, par.strip().split())
       resultado.append({a: b})
-    print(resultado)
-    
+  def montarGrafo(self):
+    pass
+  def montarDigrafo(self):
+    pass
 print("--------------------------------------------------------------------")
 print("Implementação de matriz de adjacências para grafos e dígrafos.")
 vertices = input("Informe as arestas do grafo (origem destino,origem destino, ...): ")
@@ -31,3 +33,9 @@ print("""
 V |
 -------
 """)
+
+
+# Código reutilizável
+# quantidadeLista = len(resultado)
+# for x in range(1, quantidadeLista + 1):
+# print(x)
