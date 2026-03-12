@@ -61,7 +61,24 @@ V |
 """)
 
 
-# Código reutilizável
-# quantidadeLista = len(resultado)
-# for x in range(1, quantidadeLista + 1):
-# print(x)
+
+print("--------------------------------------------------------------------")
+print("Implementação de matriz de adjacências para grafos e dígrafos.")
+arestas = input("Informe as arestas do grafo (origem destino,origem destino, ...): ")
+vertices = []
+# .split() -> divide a string em uma lista usando (,) como separador
+for par in arestas.split(","):
+    vv = []
+    for v in par.split():
+        vv.append(int(v))
+    vertices.append(vv)
+
+if len(vertices) != 0:
+    maior_num = vertices[0][0]
+    for ar in vertices:
+        for num in ar:
+            if num > maior_num:
+                maior_num = num
+    print(maior_num)
+else:
+    print("Não existe arestas a serem analisadas")
