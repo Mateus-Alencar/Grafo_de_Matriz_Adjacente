@@ -1,77 +1,19 @@
-class Grafo:
-  def __init__(self, vertices):
-    self.vertices = vertices
-    self.lista_adjacente = []
-
-  def montar_lista_adjacências(self):
-    # Separar cada par usando a vírgula.
-    for par in self.vertices.split(","):
-      # par.strip() -> Remove espaços extras no começo e fim da string
-      # .split() -> divide a string em uma lista usando o espaço como separador
-      # map(int) aplica a função int() em cada elemento da lista
-      a, b = map(int, par.strip().split())
-      self.lista_adjacente.append({a: b})
-    print(self.lista_adjacente)
-    self.montarGrafo()
-    self.montarDigrafo()
-
-  def montarGrafo(self):
-    lista = self.lista_adjacente
-    DicionarioGrafo = {}
-    if len(self.lista_adjacente) != 0:
-      if lista:
-        todos_numeros = []
-        for num in lista:
-          for chave, valor in num.items():
-            # extend() -> serve para adicionar múltiplos elementos a uma lista
-            todos_numeros.extend([chave, valor])
-        maior_vertice = max(todos_numeros)
-      print(maior_vertice)
-      for x in range(1, maior_vertice):
-        DicionarioGrafo[x] = []
-      print(DicionarioGrafo)
-
-    else:
-      print("A Lista está vazia")
-
-  def montarDigrafo(self):
-    if len(self.lista_adjacente) != 0:
-      pass
-    else:
-      print("A Lista está vazia")
-    pass
-
-print("--------------------------------------------------------------------")
-print("Implementação de matriz de adjacências para grafos e dígrafos.")
-vertices = input("Informe as arestas do grafo (origem destino,origem destino, ...): ")
-
-montarLista = Grafo(vertices)
-montarLista.montar_lista_adjacências()
-
-print("----------------------------- Execução -----------------------------")
-print("Matriz de Adjacências para Grafo:")
-print("""
-V |
--------
-""")
-print("Matriz de Adjacências para Dígrafo:")
-print("""
-V |
--------
-""")
-
-
-
-def montarDigrafo(dicionario, vertices):
-    for origem, destino in vertices:
-        dicionario[origem].append(destino)
-    print(dicionario)
+def montarDigrafo(dicionarioDigrafo, verticesDigrafo, maior_num):
+    for origem, destino in verticesDigrafo:
+        dicionarioDigrafo[origem].append(destino)
+    for x in dicionarioDigrafo:
+        print(f"{x}:{dicionarioDigrafo[x]}")
     
-def montarGrafo(dicionario, vertices):
-    for origem, destino in vertices:
-        dicionario[origem].append(destino)
-        dicionario[destino].append(origem)
-    print(dicionario)
+    
+def montarGrafo(dicionarioGrafo, verticesGrafo, maior_num):
+    for origem, destino in verticesGrafo:
+        if origem != destino:
+            dicionarioGrafo[origem].append(destino)
+            dicionarioGrafo[destino].append(origem)
+        else:
+            dicionarioGrafo[origem].append(destino)
+    for x in dicionarioGrafo:
+        print(f"{x}:{dicionarioGrafo[x]}")
 
 print("--------------------------------------------------------------------")
 print("Implementação de matriz de adjacências para grafos e dígrafos.")
@@ -90,14 +32,19 @@ if len(vertices) != 0:
         for num in ar:
             if num > maior_num:
                 maior_num = num
-    print(maior_num)
-    print(vertices)
-    dicionario = {}
+    dicionarioDigrafo = {}
     for x in range(1, maior_num + 1):
-        dicionario[x] = []
-    print(dicionario)
-    montarDigrafo(dicionario, vertices)
-    montarGrafo(dicionario, vertices)
+        dicionarioDigrafo[x] = []
+    dicionarioGrafo = {}
+    for x in range(1, maior_num + 1):
+        dicionarioGrafo[x] = []
+
+
+    montarDigrafo(dicionarioDigrafo, vertices, maior_num)
+    montarGrafo(dicionarioGrafo, vertices, maior_num)
     
 else:
     print("Não existe arestas a serem analisadas")
+    
+    
+    
