@@ -14,7 +14,12 @@ def montarGrafo(dicionarioGrafo, verticesGrafo, maior_num):
             dicionarioGrafo[origem].append(destino)
     for x in dicionarioGrafo:
         print(f"{x}:{dicionarioGrafo[x]}")
-
+    
+    print("    ", end="")    
+    for x in range(1, maior_num + 1):
+        print(f"{x}", end=" ")
+    print(f"\nV |" + "--" * maior_num)
+    
 print("--------------------------------------------------------------------")
 print("Implementação de matriz de adjacências para grafos e dígrafos.")
 arestas = input("Informe as arestas do grafo (origem destino,origem destino, ...): ")
