@@ -1,10 +1,12 @@
 def montarDigrafo(dicionarioDigrafo, verticesDigrafo, maior_num):
     for origem, destino in verticesDigrafo:
         dicionarioDigrafo[origem].append(destino)
-    for x in dicionarioDigrafo:
-        print(f"{x}:{dicionarioDigrafo[x]}")
-    
-    
+    #for x in dicionarioDigrafo:
+    #    print(f"{x}:{dicionarioDigrafo[x]}")
+    matriz = gerarMatriz(dicionarioDigrafo, maior_num)
+    print("\nMatriz de Adjacências para Dígrafo:")
+    imprimirMatriz(matriz, maior_num)
+
 def montarGrafo(dicionarioGrafo, verticesGrafo, maior_num):
     for origem, destino in verticesGrafo:
         if origem != destino:
@@ -12,14 +14,35 @@ def montarGrafo(dicionarioGrafo, verticesGrafo, maior_num):
             dicionarioGrafo[destino].append(origem)
         else:
             dicionarioGrafo[origem].append(destino)
-    for x in dicionarioGrafo:
-        print(f"{x}:{dicionarioGrafo[x]}")
-    
-    print("    ", end="")    
+    #for x in dicionarioGrafo:
+    #    print(f"{x}:{dicionarioGrafo[x]}")
+    matriz = gerarMatriz(dicionarioGrafo, maior_num)
+    print("\nMatriz de Adjacências para Grafo:")
+    imprimirMatriz(matriz, maior_num)
+
+def gerarMatriz(dicionario, maior_num):
+    matriz = []
+    for i in range(1, maior_num + 1):
+        linha = []
+        for j in range(1, maior_num + 1):
+            if j in dicionario[i]:
+                linha.append(1)
+            else: 
+                linha.append(0)
+        matriz.append(linha)
+    return matriz
+
+def imprimirMatriz(matriz, maior_num):
+    print("    ", end="")
     for x in range(1, maior_num + 1):
-        print(f"{x}", end=" ")
-    print(f"\nV |" + "--" * maior_num)
-    
+        print(x, end=" ")
+    print("\nV |" + "--" * maior_num)
+    for i in range(maior_num):
+        print(f"{i+1} |", end=" ")
+        for j in range(maior_num):
+            print(matriz[i][j], end=" ")
+        print()
+
 print("--------------------------------------------------------------------")
 print("Implementação de matriz de adjacências para grafos e dígrafos.")
 arestas = input("Informe as arestas do grafo (origem destino,origem destino, ...): ")
