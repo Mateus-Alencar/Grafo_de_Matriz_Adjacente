@@ -24,7 +24,7 @@ A -> B
 B -> C
 C -> A
 ```
->[!NOTE]  
+>[!NOTE]
 > Em caso de dúvida, consulte o [seguinte repositório](https://github.com/Mateus-Alencar/EstruturaDeDados/blob/main/DOCS/grafos.md).
 
 ### Matriz de Adjacência
@@ -72,7 +72,7 @@ Arestas: 6 1, 5 2, 2 3, 5 1, 3 5, 4 5, 2 6, 3 2, 1 6, 4 2, 2 2
 > No dígrafo, as arestas têm direção. Então a aresta aparece apenas no vértice de origem.
 
 ### Matriz de incidência  
->[WARNING]  
+>[!WARNING]
 > Matriz de incidência mostra quais vértices participam de cada aresta.
 
 Grafo  

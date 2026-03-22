@@ -43,9 +43,7 @@ def imprimirMatriz(matriz, maior_num):
             print(matriz[i][j], end=" ")
         print()
 
-print("--------------------------------------------------------------------")
-print("Implementação de matriz de adjacências para grafos e dígrafos.")
-arestas = input("Informe as arestas do grafo (origem destino,origem destino, ...): ")
+arestas = input("Arestas do grafo (origem destino, origem destino, ...): ")
 vertices = []
 # .split() -> divide a string em uma lista usando (,) como separador
 for par in arestas.split(","):
@@ -67,9 +65,8 @@ if len(vertices) != 0:
     for x in range(1, maior_num + 1):
         dicionarioGrafo[x] = []
 
-
-    montarDigrafo(dicionarioDigrafo, vertices, maior_num)
     montarGrafo(dicionarioGrafo, vertices, maior_num)
+    montarDigrafo(dicionarioDigrafo, vertices, maior_num)
     
 else:
     print("Não existe arestas a serem analisadas")
