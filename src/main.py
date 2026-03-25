@@ -1,6 +1,3 @@
-# Mateus da Silva Alencar
-# Nathan Henrique Eleuterio
-
 def montarDigrafo(dicionarioDigrafo, verticesDigrafo, maior_num):
     for origem, destino in verticesDigrafo:
         dicionarioDigrafo[origem].append(destino)
