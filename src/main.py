@@ -57,8 +57,8 @@ def imprimirMatriz(matriz_grafo, matriz_digrafo, maior_num, graus, ge, gr):
         print(f"  {graus.count(i+1)}  | ", end=" ")
         for m in range(maior_num):
             print(matriz_digrafo[i][m], end=" ")
-        print(f" {gr.count(i+1)}", end=" ")
         print(f" {ge.count(i+1)}", end=" ")
+        print(f" {gr.count(i+1)}", end=" ")
         print()
 
 arestas = input("Arestas do grafo (origem destino, origem destino, ...): ")
@@ -82,6 +82,11 @@ if len(vertices) != 0:
     dicionarioGrafo = {}
     for x in range(1, maior_num + 1):
         dicionarioGrafo[x] = []
+
+# O grau de um vértice = quantidade de arestas conectadas a ele.
+# GE (Grau de Entrada) -> Quantas arestas chegam no vértice
+# GR (Grau de Saída) -> Quantas arestas saem do vértice
+
     graus = []
     for num1, num2 in vertices:
         graus.append(num1)
@@ -89,9 +94,9 @@ if len(vertices) != 0:
     ge = []
     gr = []
     for num1, num2 in vertices:
-        ge.append(num2)
+        gr.append(num2)
     for num1, num2 in vertices:
-        gr.append(num1)
+        ge.append(num1)
 
 
             
@@ -104,5 +109,16 @@ else:
     print("Não existe arestas a serem analisadas")
 
 # 3 5, 4 5, 2 6, 3 6, 5 5, 6 1, 5 2, 1 4, 1 1, 4 2, 2 3
-    
-    
+#
+# Resultado esperado
+#
+# Arestas do grafo (origem destino, origem destino, ...): 3 5, 4 5, 2 6, 3 6, 5 5, 6 1, 5 2, 1 4, 1 1, 4 2, 2 3
+# Matrizes de Adjacências para Grafo e Dígrafo (lado a lado):
+#  V | 1 2 3 4 5 6 Grau |  1 2 3 4 5 6  GE GR 
+#  ------------------------------------------
+#  1 | 1 0 0 1 0 1   4  |  1 0 0 1 0 0  2  2 
+#  2 | 0 0 1 1 1 1   4  |  0 0 1 0 0 1  2  2 
+#  3 | 0 1 0 0 1 1   3  |  0 0 0 0 1 1  2  1 
+#  4 | 1 1 0 0 1 0   3  |  0 1 0 0 1 0  2  1 
+#  5 | 0 1 1 1 1 0   5  |  0 1 0 0 1 0  2  3 
+#  6 | 1 1 1 0 0 0   3  |  1 0 0 0 0 0  1  2 

@@ -79,3 +79,37 @@ Grafo
 ![alt text](./images/Ex_Matriz_Incidencia.png)  
 Dígrafo  
 ![alt text](./images/Ex_Digrafo_Incidencia.png)  
+
+## Grau, GE e GR
+
+### Grau (Grafo não direcionado)
+
+O grau de um vértice representa a quantidade de conexões (arestas) que ele possui.
+No código, isso é feito contando quantas vezes o vértice aparece nas arestas:
+
+```py
+# Cada aresta contribui para dois vértices
+arestas = []
+for num1, num2 in vertices:
+    arestas.append(num1)
+    arestas.append(num2)
+```
+### GE — Grau de Entrada (Dígrafo)  
+
+O grau de entrada (GE) indica quantas arestas chegam em um vértice.  
+
+```py
+ge = []
+for num1, num2 in vertices:
+    ge.append(num2)  # destino
+```
+
+### GR — Grau de Saída (Dígrafo)  
+
+O grau de saída (GR) indica quantas arestas saem de um vértice.
+
+```py
+gr = []
+for num1, num2 in vertices:
+    gr.append(num1)  # origem
+```
